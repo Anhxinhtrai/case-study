@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeGym Ca-ro Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="black">
+<button onclick="start()">Start</button>
+<div id="a">
+    <div id="game-board">
+    </div>
+</div>
+<script>
+    const VALUE_EMPTY = 1;
+    const VALUE_X = 2;
+    const VALUE_O = 3;
+    const DEFAULT_COLS = 10;
+    const DEFAULT_ROWS = 10;
+    const DEFAULT_CELL_SIZE = 40;
+</script>
+<script src="Cell.js"></script>
+<script src="GameBoard.js"></script>
+<script>
+
+    let gameBoard;
+
+    function play(x, y) {
+        gameBoard.play(x, y);
+    }
+
+    function start() {
+        gameBoard = new GameBoard(DEFAULT_ROWS, DEFAULT_COLS, "game-board");
+        gameBoard.draw();
+    }
+
+    start();
+
+</script>
+</body>
+</html>
