@@ -2,12 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodeGym Ca-ro Demo</title>
+    <title>Cờ Carro</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body bgcolor="black">
-<button onclick="start()">Start</button>
-<div id="a">
+<body>
+<center>
+
+    <div id="create-board">
+        <p style="font-family: 'Courier New'; background: hotpink ; color: white ;width: 400px"><b>Tạo bàn cờ</b></p>
+        <input type="text" id="rows" value="10" size="1"> X
+        <input type="text" id="cols" value="20" size="1">
+        <button onclick="start()">Chơi</button>
+    </div>
+
+    <b><p><span id="bar" style="background: wheat ; font-family: 'Courier New' ; width: 25%"></span><br><span
+            id="count-down" style="background: darkgray ; font-family: 'Courier New'; width: 40%; border: red 1px solid; color: white"></span></p></b>
+</center>
+<div id="main">
     <div id="game-board">
     </div>
 </div>
@@ -24,18 +35,43 @@
 <script>
 
     let gameBoard;
+    let counter = setInterval(countDown, 1000);
+    let count;
 
     function play(x, y) {
         gameBoard.play(x, y);
     }
 
     function start() {
-        gameBoard = new GameBoard(DEFAULT_ROWS, DEFAULT_COLS, "game-board");
+        count = 30;
+        let rows = document.getElementById('rows').value;
+        let cols = document.getElementById('cols').value;
+        gameBoard = new GameBoard(rows, cols, "game-board");
         gameBoard.draw();
+        countDown();
+        document.getElementById('create-board').style.display = "none";
     }
 
-    start();
+    function countDown() {
+        if (gameBoard.isOver === false) {
+            count--;
+            if (count <= 0) {
+                clearInterval(counter);
+                gameBoard.isOver = true;
+                if (gameBoard.turn === VALUE_X) {
+                    document.getElementById("bar").innerHTML = "<h2>Người chơi 2 đã chiến thắng!!! <button onclick='window.location.reload()'>Chơi lại</button></h2>";
+                } else {
+                    document.getElementById("bar").innerHTML = "<h2>Người chơi 1 đã chiến thắng!!!<button onclick='window.location.reload()'>Chơi lại</button></h2> ";
+                }
+                return;
+            }
+            document.getElementById("count-down").innerHTML = "Thời gian còn lại <font color='red'>" + count + "</font> giây";
 
+        }
+
+
+    }
 </script>
+</center>
 </body>
 </html>
