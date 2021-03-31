@@ -7,16 +7,15 @@
 </head>
 <body>
 <center>
-
     <div id="create-board">
-        <p style="font-family: 'Courier New'; background: hotpink ; color: white ;width: 400px"><b>Tạo bàn cờ</b></p>
+        <p style="font-family: 'Courier New'; background: white ;width: 400px; border: deepskyblue 1px solid"><b>Tạo bàn cờ</b></p>
         <input type="text" id="rows" value="10" size="1"> X
         <input type="text" id="cols" value="20" size="1">
         <button onclick="start()">Chơi</button>
     </div>
 
     <b><p><span id="bar" style="background: wheat ; font-family: 'Courier New' ; width: 25%"></span><br><span
-            id="count-down" style="background: darkgray ; font-family: 'Courier New'; width: 40%; border: red 1px solid; color: white"></span></p></b>
+            id="count-down" style="background: beige ; font-family: 'Courier New'; width: 40%; border: red 1px solid; color: black"></span></p></b>
 </center>
 <div id="main">
     <div id="game-board">
@@ -59,9 +58,9 @@
                 clearInterval(counter);
                 gameBoard.isOver = true;
                 if (gameBoard.turn === VALUE_X) {
-                    document.getElementById("bar").innerHTML = "<h2>Người chơi 2 đã chiến thắng!!! <button onclick='window.location.reload()'>Chơi lại</button></h2>";
+                    document.getElementById("bar").innerHTML = "<h2 style='background-color: beige; border: deepskyblue 1px solid; color: deepskyblue'>Người chơi 2 đã chiến thắng!!! <button onclick='window.location.reload()'>Chơi lại</button></h2>";
                 } else {
-                    document.getElementById("bar").innerHTML = "<h2>Người chơi 1 đã chiến thắng!!!<button onclick='window.location.reload()'>Chơi lại</button></h2> ";
+                    document.getElementById("bar").innerHTML = "<h2 style='background-color: beige;border: red 1px solid;color: red'>Người chơi 1 đã chiến thắng!!!<button onclick='window.location.reload()'>Chơi lại</button></h2> ";
                 }
                 return;
             }
@@ -72,6 +71,8 @@
 
     }
 </script>
+<audio src="link.mp3" autoplay></audio>
+
 </center>
 </body>
 </html>

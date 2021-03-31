@@ -113,9 +113,9 @@ class GameBoard {
         if (count >= 5) {
             this.isOver = true;
             if (this.turn === VALUE_X) {
-                document.getElementById('bar').innerHTML = "<h2>Người chơi 1 đã chiến thắng!!!<button onclick='window.location.reload()'>Chơi lại</button></h2>"
+                document.getElementById('bar').innerHTML = "<h2 style='background-color: beige; border: deepskyblue 1px solid; color: deepskyblue'>Người chơi 1 đã chiến thắng!!!<button onclick='window.location.reload()'>Chơi lại</button></h2>"
             } else {
-                document.getElementById('bar').innerHTML = "<h2>Người chơi 2 đã chiến thắng!!!<button onclick='window.location.reload()'>Chơi lại</button></h2>"
+                document.getElementById('bar').innerHTML = "<h2 style='background-color: beige;border: red 1px solid;color: red'>Người chơi 2 đã chiến thắng!!!<button onclick='window.location.reload()'>Chơi lại</button></h2>"
             }
         }
     }
